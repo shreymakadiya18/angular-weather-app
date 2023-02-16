@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-center my-4">Search for Weather:</h3>
+        <form
+          [formGroup]="weatherSearchForm"
+          (ngSubmit)="sendToAPIXU(weatherSearchForm.value)"
+        >
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              id="weatherLocation"
+              aria-describedby="weatherLocation"
+              placeholder="Please input a Location"
+              formControlName="location"
+            />
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success btn-md">
+              Search for the weather
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-center my-4">Weather Details:</h3>
+        <!-- <p class="text-center">
+          Current weather conditions:
+          {{ this.weatherData?.weather[0].description }}.
+        </p>
+        <p class="text-center">
+          letitude:{{ this.weatherData?.coord.lat }}
+        </p>
+        <p class="text-center">
+          longitude:{{ this.weatherData?.coord.lon }}
+        </p>
+        <p class="text-center">
+          Temperature in Degrees Farenheit: {{ this.weatherData?.main.temp }}
+        </p>
+        <p class="text-center">
+          Feels like in Degrees Farenheit:
+          {{ this.weatherData?.main.feels_like }}
+        </p>
+        <p class="text-center">
+          Location Searched: {{ this.weatherData?.name }},
+          {{ this.weatherData?.sys.country }}.
+        </p> -->
+
+        <p class="text-center">
+          main:
+          {{ this.weatherData?.weather[0].main }}
+        </p>
+        <p class="text-center">
+          description:{{ this.weatherData?.weather[0].description }}
+        </p>
+        <p class="text-center">
+          feels_like:{{ this.weatherData?.main.feels_like }}
+        </p>
+        <p class="text-center">
+          pressure: {{ this.weatherData?.main.pressure }}
+        </p>
+        <p class="text-center">
+          wind speed:
+          {{ this.weatherData?.wind.speed }}
+        </p>
+        <p class="text-center">
+          wind deg: {{ this.weatherData?.wind.deg }}
+        </p>
+        <p class="text-center">
+          sunrise: {{ this.weatherData?.sys.sunrise }}
+        </p>
+        <p class="text-center">
+          sunset: {{ this.weatherData?.sys.sunset }}
+        </p>
+        <p class="text-center">
+          name: {{ this.weatherData?.name }}
+        </p>
+        <div class="text-center">
+          <img id="wicon" src="https://openweathermap.org/img/wn/{{this.weatherData?.weather[0].icon}}@2x.png" alt="weather icon" />
+      </div>
+      </div>
+      
+    
+    </div>
+  </div>
+  
